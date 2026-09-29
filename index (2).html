@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Enrollment System</title>
+    <!-- Link external CSS file -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Student Enrollment System</h1>
+            <p>Please fill out the form below to register your enrollment.</p>
+        </header>
+
+        <main>
+            <div id="success-banner" class="success-banner hidden">
+                Student successfully enrolled!
+            </div>
+
+            <form id="enrollmentForm" novalidate>
+                <!-- Student ID -->
+                <div class="form-group">
+                    <label for="studentId">Student ID <span class="required">*</span></label>
+                    <input type="text" id="studentId" name="studentId" placeholder="e.g. 2026-00123">
+                    <small class="error-msg" id="studentIdError"></small>
+                </div>
+
+                <!-- Prefix -->
+                <div class="form-group">
+                    <label for="prefix">Prefix (Optional)</label>
+                    <input type="text" id="prefix" name="prefix" placeholder="e.g. Mr., Ms., Dr.">
+                    <small class="error-msg" id="prefixError"></small>
+                </div>
+
+                <!-- First Name -->
+                <div class="form-group">
+                    <label for="firstName">First Name <span class="required">*</span></label>
+                    <input type="text" id="firstName" name="firstName" placeholder="e.g. Juan">
+                    <small class="error-msg" id="firstNameError"></small>
+                </div>
+
+                <!-- Middle Name -->
+                <div class="form-group">
+                    <label for="middleName">Middle Name (Optional)</label>
+                    <input type="text" id="middleName" name="middleName" placeholder="e.g. Santos">
+                    <small class="error-msg" id="middleNameError"></small>
+                </div>
+
+                <!-- Last Name -->
+                <div class="form-group">
+                    <label for="lastName">Last Name <span class="required">*</span></label>
+                    <input type="text" id="lastName" name="lastName" placeholder="e.g. Dela Cruz">
+                    <small class="error-msg" id="lastNameError"></small>
+                </div>
+
+                <!-- Suffix -->
+                <div class="form-group">
+                    <label for="suffix">Suffix (Optional)</label>
+                    <input type="text" id="suffix" name="suffix" placeholder="e.g. Jr., III">
+                    <small class="error-msg" id="suffixError"></small>
+                </div>
+
+                <!-- Email -->
+                <div class="form-group">
+                    <label for="email">Email Address <span class="required">*</span></label>
+                    <input type="email" id="email" name="email" placeholder="e.g. student@example.com">
+                    <small class="error-msg" id="emailError"></small>
+                </div>
+
+                <!-- Course -->
+                <div class="form-group">
+                    <label for="course">Course <span class="required">*</span></label>
+                    <select id="course" name="course">
+                        <option value="">-- Select Course --</option>
+                        <option value="BSIT">BSIT</option>
+                        <option value="BSCS">BSCS</option>
+                        <option value="BMMA">BMMA</option>
+                        <option value="BSAIS">BSAIS</option>
+                    </select>
+                    <small class="error-msg" id="courseError"></small>
+                </div>
+
+                <!-- Major (Conditional for BSIT) -->
+                <div class="form-group hidden" id="majorGroup">
+                    <label for="major">BSIT Major <span class="required">*</span></label>
+                    <select id="major" name="major">
+                        <option value="">-- Select Major --</option>
+                        <option value="Net Sec">Net Sec</option>
+                        <option value="Web Tech">Web Tech</option>
+                        <option value="ERP">ERP</option>
+                    </select>
+                    <small class="error-msg" id="majorError"></small>
+                </div>
+
+                <!-- Year Level -->
+                <div class="form-group">
+                    <label for="yearLevel">Year Level <span class="required">*</span></label>
+                    <select id="yearLevel" name="yearLevel">
+                        <option value="">-- Select Year Level --</option>
+                        <option value="1st Year">1st Year</option>
+                        <option value="2nd Year">2nd Year</option>
+                        <option value="3rd Year">3rd Year</option>
+                    </select>
+                    <small class="error-msg" id="yearLevelError"></small>
+                </div>
+
+                <!-- Submit Button -->
+                <button type="submit" id="submitBtn">Enroll Student</button>
+            </form>
+        </main>
+
+        <!-- Section to display submitted data -->
+        <section class="records-section">
+            <h2>Enrolled Students Record</h2>
+            <div class="table-responsive">
+                <table id="recordsTable">
+                    <thead>
+                        <tr>
+                            <th>Student ID</th>
+                            <th>Full Name</th>
+                            <th>Email</th>
+                            <th>Course / Major</th>
+                            <th>Year Level</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tableBody">
+                        <!-- Populated by JavaScript -->
+                        <tr id="emptyRow">
+                            <td colspan="5" style="text-align: center; color: #718096;">No records submitted yet.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </div>
+
+    <!-- Link external JS file -->
+    <script src="script.js"></script>
+</body>
+</html>
